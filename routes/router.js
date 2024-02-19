@@ -8,7 +8,7 @@ const upload = multer({
 });
 
 // send mail
-router.post("/register", upload.single("myfile"), (req, res) => {
+router.post("/send", upload.single("myfile"), (req, res) => {
   const { selectedPosition, emailAddress, fullName } = req.body;
 
   try {
