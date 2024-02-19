@@ -9,7 +9,7 @@ const upload = multer({
 
 // send mail
 router.post("/register", upload.single("myfile"), (req, res) => {
-  const { email, message } = req.body;
+  const { selectedPosition, emailAddress, fullName } = req.body;
 
   try {
     const transporter = nodemailer.createTransport({
@@ -21,11 +21,13 @@ router.post("/register", upload.single("myfile"), (req, res) => {
     });
 
     const mailOptions = {
-      from: email,
+      from: emailAddress,
       to: process.env.EMAIL,
-      subject: "Sending Email With React And Nodejs",
-      html: `<p>Email is : ${email}</p>
-      <p>Message is : ${message}</p>`,
+      subject: `New Message From ${fullName}`,
+      html: `
+      <p>Name is : ${fullName}</p>
+      <p>EmailAddress is : ${emailAddress}</p>
+      <p>Position is : ${selectedPosition}</p>`,
       attachments: [
         {
           filename: req.file.originalname,

@@ -17,7 +17,7 @@ const Home = () => {
     fd.append("myfile", file);
 
     try {
-      const res = await fetch("http://localhost:8004/register", {
+      const res = await fetch("https://email-backend-z1wz.onrender.com/register", {
         method: "POST",
         body: fd,
       });
