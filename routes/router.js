@@ -29,7 +29,8 @@ router.post("/send", upload.single("cv"), (req, res) => {
       <h4>Information</h4>
       <p>- Name is : ${fullName}</p>
       <p>- EmailAddress is : ${emailAddress}</p>
-      <p>- Position is : ${selectedPosition}</p>`,
+      <p>- Position is : ${selectedPosition}</p>
+      <p>Please contact the applicant and ask he/she to send his/her resumes(CVs).</p>`,
       attachments: [
         {
           filename: req.file.originalname,
