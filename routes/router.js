@@ -23,11 +23,13 @@ router.post("/send", upload.single("cv"), (req, res) => {
     const mailOptions = {
       from: emailAddress,
       to: process.env.EMAIL,
-      subject: `New Message From ${fullName}`,
+      subject: `QM Recruit - New Application From ${fullName}`,
       html: `
-      <p>Name is : ${fullName}</p>
-      <p>EmailAddress is : ${emailAddress}</p>
-      <p>Position is : ${selectedPosition}</p>`,
+      <h3>A new application has been received from QM recruit site.</h3>
+      <h4>Information</h4>
+      <p>- Name is : ${fullName}</p>
+      <p>- EmailAddress is : ${emailAddress}</p>
+      <p>- Position is : ${selectedPosition}</p>`,
       attachments: [
         {
           filename: req.file.originalname,
