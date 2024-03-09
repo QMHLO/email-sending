@@ -9,7 +9,7 @@ const upload = multer({
 
 // send mail
 router.post("/send", upload.single("cv"), (req, res) => {
-  const { selectedPosition, emailAddress, fullName } = req.body;
+  const { selectedPosition, emailAddress, phNumber, shiftSystem, fullName } = req.body;
 
   try {
     const transporter = nodemailer.createTransport({
@@ -29,7 +29,9 @@ router.post("/send", upload.single("cv"), (req, res) => {
       <h4>Information</h4>
       <p>- Name is : ${fullName}</p>
       <p>- EmailAddress is : ${emailAddress}</p>
+      <p>- PhoneNumber is : ${phNumber}</p>
       <p>- Position is : ${selectedPosition}</p>
+      <p>- ShiftSystem is : ${shiftSystem}</p>
       <p>Please contact the applicant and ask he/she to send his/her resumes(CVs).</p>`,
       attachments: [
         {
